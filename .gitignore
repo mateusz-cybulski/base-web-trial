@@ -9,3 +9,8 @@ tfplan
 
 # Your agents branch checked out for editing (mise run skill-import / skill-publish)
 .agents/
+
+# Local secrets (mise run env writes them); examples are committed
+.env
+.env.*
+!.env.example

@@ -1,3 +1,6 @@
+# Set by GitHub Actions as TF_VAR_<NAME> (see .github/workflows/terraform.yml); passed to the
+# platform module unchanged.
+
 variable "GITHUB_REPO_NAME" {
   type        = string
   description = "GitHub repository name (e.g. github.event.repository.name)"

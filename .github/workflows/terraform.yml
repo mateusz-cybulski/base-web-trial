@@ -115,7 +115,7 @@ jobs:
         run: |
           # The project ID must be known before the main plan (google provider bug with
           # google_cloud_run_domain_mapping.metadata.namespace), so create its random suffix first.
-          terraform apply -auto-approve -target=random_string.project_suffix
+          terraform apply -auto-approve -target=module.app.random_string.project_suffix
           terraform apply -auto-approve
 
       - name: Report
