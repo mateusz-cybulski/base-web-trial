@@ -1,0 +1,6 @@
+{
+  "secrets": {
+    "TRIAL_SECRET": "database-url"
+  },
+  "local_secrets": ["TRIAL_SECRET"]
+}
