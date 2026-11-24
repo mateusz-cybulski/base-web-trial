@@ -33,6 +33,10 @@ run = "docker compose up --build --watch"
 description = "Write each component's local .env with the secrets its service.json lists in local_secrets, from Secret Manager with your gcloud login (--dry-run: only list them)"
 run = ".config/scripts/env-pull.sh"
 
+[tasks.platform]
+description = "Update the project to a base-web release (Terraform module ref and the platform's own files), e.g. `mise run platform v1.2.0` (no argument: the latest; --list: show releases)"
+run = ".config/scripts/platform-update.sh"
+
 [tasks.clean]
 description = "Remove the stack's containers (with caches such as Next's .next) and unused Docker build cache; data volumes stay (--all: also the stack's images and all build cache)"
 run = ".config/scripts/clean.sh"

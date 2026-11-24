@@ -72,6 +72,11 @@ echo "Project: $project"
 # The list comes in on descriptor 3: gcloud may ask for a password on standard input.
 while read -r component env_name secret_id <&3; do
   env_file="src/$component/.env"
+  # Never write a secret where a commit could pick it up.
+  if ! git check-ignore -q "$env_file"; then
+    echo "$env_file is not ignored by git; add .env to .gitignore first." >&2
+    exit 1
+  fi
   if ! value="$(gcloud secrets versions access latest --secret="$secret_id" --project="$project")"; then
     echo "Cannot read secret $secret_id. Your Google account (or a group it belongs to) must be" >&2
     echo "in the DEVELOPERS GitHub secret, and Terraform must have run since it was added." >&2
